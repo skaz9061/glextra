@@ -1,0 +1,17 @@
+article {
+	display: flex;
+	flex-direction: column;
+}
+
+article img {
+	width: 100%;
+	align-self: center;
+}
+
+article h2 {
+	padding-top: 10px;
+}
+
+hr {
+	width: 100%
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { JumbotronComponent } from '../jumbotron/jumbotron.component';
 
 @Component({
   selector: 'app-home',

@@ -1,1 +1,14 @@
-<p>careers works!</p>
+<app-jumbotron [heading]="'Career Opportunities'"></app-jumbotron>
+<div class="flex-container flex-column flex-a-center">
+	<p class="block-indent">Some text about how great it is to work here. Some text about how great it is to work here. Some text about how great it is to work here. Some text about how great it is to work here. Some text about how great it is to work here. Some text about how great it is to work here. Some text about how great it is to work here. Some text about how great it is to work here. Some text about how great it is to work here. </p>
+	<div class="container">
+		<div class="flex-container flex-row flex-a-center">
+			<h2 class="center-text col-7">Positions Available</h2>
+			<ul class="col-5">
+				<li *ngFor="let position of positions">{{position}}</li>
+			</ul>
+		</div>
+	</div>
+	<h1 class="center-text">Send Us Your Resume</h1>
+	<div class="needs-bottom-spacing">*******RESUME FORM*********</div>
+</div>

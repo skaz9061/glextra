@@ -1,1 +1,10 @@
-<p>articles works!</p>
+<h1>Glextra Industry Update</h1>
+<h2 class="indent-first white-text">Our latest articles on the rapidly growing CBD Industry</h2>
+<article *ngFor="let article of articles">
+	<hr />
+	<img [src]="article.imageUrl" />
+	<h2>{{article.title}}</h2>
+	<h3>{{article.date}}</h3>
+	<h3>{{article.author}}</h3>
+	<p class="pre-wrap block-indent">{{article.text}}</p>
+</article>

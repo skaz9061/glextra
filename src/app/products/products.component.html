@@ -1,1 +1,15 @@
-<p>products works!</p>
+<app-jumbotron [heading]="'High Quality CBD'" [sub]="'Wholesale Products'"></app-jumbotron>
+<div class="flex-container flex-column flex-a-center">
+	<p class="block-indent">Aliis fulminibus figuras vultus obstabatque eodem animalia aequalis regna cum horrifer manebat caelo fidem dicere ad tellure sponte pro quisque quia norant mentes principio tegi deerat lanient figuras diu circumdare septemque peregrinum circumfuso auroram super sive inter animal orbe tollere crescendo securae homini fuit et animalia gentes quisquis ille erant pulsant montibus ipsa altae amphitrite obstabatque verba conversa mare quoque principio terrarum adspirate undas circumfuso aethera duris naturae habentem tempora faecis gravitate erant indigestaque campos altae ventis duas unda aliud nam fert numero coercuit timebat seductaque mundo litora nec aethere mentes terrae fluminaque mundi dissaepserat perpetuum uno habendum levius melior animalibus unus divino inter egens quoque flamma longo litem rerum nulli media spectent nec in arce coeperunt chaos: ligavit: locis flamma congeriem horrifer duas caelum sinistra natus vultus alto nullaque illis poena altae corpore nix cepit moderantum temperiemque di toto coercuit perpetuum caeca formas erant cognati erat: fecit naturae carmen.</p>
+	<div id="product-list">
+		<div *ngFor="let product of products" class="product-item flex-container flex-row flex-a-center flex-j-center">
+			<div class="flex-container flex-column product-image-tile flex-a-center flex-j-center">
+				<img [src]="product.imageUrl" />
+				<h3>{{product.name}}</h3>
+			</div>
+			<p>{{product.description}}</p>
+		</div>
+	</div>
+	<h1 class="center-text"><span class="non-italic em">Contact Us</span> for Product Purchasing Information</h1>
+	<p>*** CONTACT FORM GOES HERE ***</p>
+</div>

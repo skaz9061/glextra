@@ -1,1 +1,333 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+
+html, body { height: 100%; }
+body { 
+	margin: 0; 
+	font-family: Arial, "Helvetica Neue", sans-serif;
+	background-color: #232323;
+	color: white;}
+
+h1, h2, h3, h4, h5 { color: #ffda5d; font-weight: normal; margin: 0;}
+
+h1 {
+	font-style: italic;
+	font-size: 36px;
+	margin-top: 30px;
+}
+
+section {
+	margin-bottom: 5px;
+}
+
+button {
+	background-color: #ffda5d;
+	border: none;
+	border-radius: 5px;
+	padding: 5px 15px;
+	color: #151337;
+}
+
+a:link, a:hover, a:visited, a:active {
+	color: #ffda5d;
+	text-decoration: underline;
+}
+
+.no-margin {
+	margin: 0;
+}
+
+.offset-l-50 {
+	position: relative;
+	left: 50px;
+}
+
+.em {
+	font-weight: bolder;
+}
+
+.non-italic {
+	font-style: normal;
+}
+
+.jumbo-head { 
+	color:  rgba(255,218,93);
+	font-style: normal;
+	font-size: 48pt; 
+	font-weight: bold;
+	-webkit-text-stroke: 3px #ffda5d;
+	-webkit-text-fill-color: rgba(255,218,93,.3);
+	}
+
+.jumbo-sub { font-size: 18pt; position: relative;}
+
+.center-text { text-align: center;}
+
+.container {position: relative; width:100%}
+
+.flex-container {
+	position: relative;
+	width: 100%;
+	display: flex;
+}
+
+.flex-column {
+	flex-direction: column;
+}
+
+.flex-row {
+	flex-direction: row;
+}
+
+.flex-grow-1{
+	flex-grow: 1;
+}
+
+.flex-grow-2{
+	flex-grow: 2;
+}
+
+.flex-grow-3{
+	flex-grow: 3;
+}
+
+.flex-grow-4{
+	flex-grow: 4;
+}
+
+.flex-shrink-1{
+	flex-shrink: 1;
+}
+
+.flex-shrink-2{
+	flex-shrink: 2;
+}
+
+.flex-shrink-3{
+	flex-shrink: 3;
+}
+
+.flex-shrink-4{
+	flex-shrink: 4;
+}
+
+.flex-j-center {
+	justify-content: center;
+}
+
+.flex-a-center {
+	align-items: center;
+}
+
+.flex-wrap {
+	flex-wrap: wrap;
+}
+
+.col-1 {
+	width: 8%;
+}
+
+.col-2 {
+	width: 17%;
+}
+
+.col-3 {
+	width: 25%;
+}
+
+.col-4 {
+	width: 33%;
+}
+
+.col-5 {
+	width: 42%;
+}
+
+.col-6 {
+	width: 50%;
+}
+
+.col-7 {
+	width: 58%;
+}
+
+.col-8 {
+	width: 67%;
+}
+
+.col-9 {
+	width: 75%;
+}
+
+.col-10 {
+	width: 83%;
+}
+
+.col-11 {
+	width: 92%;
+}
+
+.col-12 {
+	width: 100%;
+}
+
+.tile-text{
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.tile-img {
+	align-self: center;
+}
+
+.content-panel { 
+	background: #151337; 
+	width: 100%; 
+	min-width: 716px;
+	margin-top: 0; 
+	padding-left: 10px; 
+	padding-right: 10px;
+	}
+	
+.side-panel {
+	min-width: 150px;
+}
+
+.sp-l {
+	background: url("./assets/images/hexagon-l.png");
+	background-repeat: repeat-y;
+	background-size: 100%;
+}
+
+.sp-r {
+	background: url("./assets/images/hexagon-r.png");
+	background-repeat: repeat-y;
+	background-size: 100%;
+	background-position: 0 -200px
+}
+
+.margin-auto {
+	margin: auto;
+}
+
+.inline-block {
+	display: inline-block;
+}
+
+.needs-bottom-spacing {
+	margin-bottom: 40px;
+}
+
+.block-indent {
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
+.indent-first {
+	text-indent: 4em;
+}
+
+.white-text {
+	color: white;
+}
+
+.pre-wrap {
+	white-space: pre-wrap;
+}
+
+.align-self-center {
+	align-self: center;
+}
+
+/******** IDs ********/
+
+#jumbo {
+	position: relative;
+	display: flex;
+	overflow: auto;
+  	justify-content: center;
+  	align-items: center;
+	margin-bottom: 10px;
+}
+
+#jumbo-img {
+	position:relative;
+	width:100%;
+}
+
+#jumbo-text {
+	position: absolute;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+	flex-direction: column;
+	z-index: 1;
+	
+}
+
+#articles-section #most-recent-article {
+	padding: 20px 0;
+}
+
+#articles-section #most-recent-article h2 {
+	padding: 0 30px;
+	text-align: right;
+}
+
+#footer {
+	background: #232323;
+	font-size: 0.8em;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+#footer mat-icon {
+	font-size: 12pt;
+}
+
+#footer span {
+	text-align: right;
+	font-style: italic;
+	padding-right: 30px;
+}
+
+#footer nav {
+	text-align: left;
+	padding-left: 30px;
+}
+
+#header {
+	margin-bottom: 10px;
+}
+
+#header .logo {
+	align-self: center;
+	max-height: 100px;
+}
+
+#header h1 {
+	font-family: "Kaushan Script";
+}
+
+#header hr {
+	width: 100%
+}
+
+#header a:link, #header a:hover, #header a:visited, #header a:active {
+	font-size: 12pt;
+	padding: 10px 20px;
+	text-decoration: none;
+}
+
+#header a:hover {
+	background: #ffda5d;
+	background-clip: border-box;
+	border-radius: 2px;
+	color: #151337;
+}
+
+#main-container {
+	width: inherit;
+	margin: auto;
+}

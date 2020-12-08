@@ -1,0 +1,26 @@
+#product-list .product-item .product-image-tile img {
+	align-self: center;
+	height: 200px;
+}
+
+#product-list .product-item {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+#product-list {
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
+.product-item p {
+	padding: 40px;
+}
+
+.product-image-tile h3 {
+	margin-top: 10px;
+}
+
+#product-list .product-item:nth-child(even) .product-image-tile {
+	order: 2;
+}
