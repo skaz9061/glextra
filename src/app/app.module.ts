@@ -23,6 +23,7 @@ import { ArticlesComponent } from './articles/articles.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JumbotronComponent } from './jumbotron/jumbotron.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
+import { ResumeFormComponent } from './resume-form/resume-form.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
     ContactComponent,
     ArticlesComponent,
     JumbotronComponent,
-    ContactFormComponent
+    ContactFormComponent,
+    ResumeFormComponent
   ],
   imports: [
     BrowserModule,

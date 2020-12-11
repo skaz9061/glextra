@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -11,13 +11,19 @@ import { ContactService } from '../contact.service';
   styleUrls: ['./contact-form.component.css']
 })
 export class ContactFormComponent implements OnInit {
+  //regex patterns
+  pattNumOnly = /^[0-9]*$/;
+  pattTenDigit = /^.{10}$/;
+  pattPhoneForm = /(^\d{10}$)|(^\d{3}-\d{3}-\d{4}$)/;
+  pattNotStart0or1 = /^[^0-1].*/;
+
   contactForm = this.fb.group({
-	reasonForContacting: [''],
-	contactName: [''],
-	businessName: [''],
-	phoneNumber: [''],
-	email: [''],
-	details: ['']
+	reasonForContacting: ['', Validators.required],
+	contactName: ['', Validators.required],
+	businessName: ['', Validators.required],
+	phoneNumber: ['', [Validators.required, Validators.pattern(this.pattPhoneForm), Validators.pattern(this.pattNotStart0or1)]],
+	email: ['', [Validators.required, Validators.email]],
+	details: ['', Validators.required]
   });
 
   reasons: ContactReason[] = [
@@ -28,7 +34,45 @@ export class ContactFormComponent implements OnInit {
   constructor( private fb: FormBuilder, private _contact: ContactService) { }
 
   ngOnInit(): void {
+	//console.log(this.contactForm);
   }
+
+  getErrorMessage( formControlName:string=""): string {
+	let message = "";
+	let formControl: AbstractControl;
+	
+	if( !(formControlName === "") ){
+		formControl = this.contactForm.controls[formControlName];
+	} else {
+		return "Must enter a value";
+	}
+	
+	
+	if(formControl.hasError("required")) {
+		
+		message = "Must enter a value";
+		
+	} else if(formControl.hasError("email")) {
+		
+		message = "Invalid Email";
+		
+	} else if(formControl.hasError("pattern")) {
+		
+		if(formControl.errors.pattern.requiredPattern == String(this.pattNumOnly)) {
+			message = "Must enter only numbers";
+		} else if(formControl.errors.pattern.requiredPattern == String(this.pattTenDigit)) {
+			message = "Must be 10 digits long";
+		} else if(formControl.errors.pattern.requiredPattern == String(this.pattPhoneForm)) {
+			message = "Must be 10 digit number or ###-###-####";
+		} else if(formControl.errors.pattern.requiredPattern == String(this.pattNotStart0or1)) {
+			message = "Cannot start with 0 or 1";
+		}
+	} else {
+		console.log(formControl.errors);
+	}
+	
+	return message;
+}
 
   onSubmit(contactData: any) {
     this._contact.postContactForm(contactData)

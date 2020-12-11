@@ -1,34 +1,40 @@
 <form [formGroup]="contactForm" class="flex-container flex-column" (ngSubmit)="onSubmit(contactForm.value)">
 	<mat-form-field>
 		<mat-label>Reason for Contacting</mat-label>
-		<mat-select formControlName="reasonForContacting">
+		<mat-select formControlName="reasonForContacting" required >
 			<mat-option *ngFor="let reason of reasons" [value]="reason.value">
 				{{reason.viewValue}}
 			</mat-option>
 		</mat-select>
+		<mat-error *ngIf="contactForm.controls.reasonForContacting.invalid">{{getErrorMessage()}}</mat-error>
 	</mat-form-field>
 	<mat-form-field>
 		<mat-label>Contact Name</mat-label>
-		<input matInput formControlName="contactName" />
+		<input matInput formControlName="contactName" required />
+		<mat-error *ngIf="contactForm.controls.contactName.invalid">{{getErrorMessage()}}</mat-error>
 	</mat-form-field>
 	<mat-form-field>
 		<mat-label>Business Name</mat-label>
-		<input matInput formControlName="businessName" />
+		<input matInput formControlName="businessName" required />
+		<mat-error *ngIf="contactForm.controls.businessName.invalid">{{getErrorMessage()}}</mat-error>
 	</mat-form-field>
 	<mat-form-field>
 		<mat-label>Phone Number</mat-label>
-		<input matInput formControlName="phoneNumber" />
+		<input matInput formControlName="phoneNumber" type="tel" required />
+		<mat-error *ngIf="contactForm.controls.phoneNumber.invalid">{{getErrorMessage("phoneNumber")}}</mat-error>
 	</mat-form-field>
 	<mat-form-field>
 		<mat-label>Email</mat-label>
-		<input matInput formControlName="email" />
+		<input matInput formControlName="email" type="email" required />
+		<mat-error *ngIf="contactForm.controls.email.invalid">{{getErrorMessage("email")}}</mat-error>
 	</mat-form-field>
 	<mat-form-field>
 		<mat-label>Details</mat-label>
-		<textarea matInput formControlName="details"></textarea>
+		<textarea matInput formControlName="details" rows="3" required ></textarea>
+		<mat-error *ngIf="contactForm.controls.details.invalid">{{getErrorMessage()}}</mat-error>
 	</mat-form-field>
 	<div class="flex-container flex-row flex-j-center flex-a-center mb-20">
-		<input type="reset" value="Reset" class="mr-20" />
-		<input type="submit" value="Submit" class="ml-20" />
+		<button type="reset" value="Reset" class="mr-20">Reset</button>
+		<button type="submit" value="Submit" class="ml-20" [disabled]="contactForm.invalid">Submit</button>
 	</div>
 </form>
