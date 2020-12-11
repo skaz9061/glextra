@@ -1,0 +1,200 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$md-yellowcollection: (
+    50 : #fffbec,
+    100 : #fff4ce,
+    200 : #ffedae,
+    300 : #ffe58e,
+    400 : #ffe075,
+    500 : #ffda5d,
+    600 : #ffd655,
+    700 : #ffd04b,
+    800 : #ffcb41,
+    900 : #ffc230,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #fff4db,
+    A700 : #ffecc2,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$md-navycollection: (
+    50 : #e3e3e7,
+    100 : #b9b8c3,
+    200 : #8a899b,
+    300 : #5b5a73,
+    400 : #383655,
+    500 : #151337,
+    600 : #121131,
+    700 : #0f0e2a,
+    800 : #0c0b23,
+    900 : #060616,
+    A100 : #5757ff,
+    A200 : #2424ff,
+    A400 : #0000f0,
+    A700 : #0000d6,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #ffffff,
+        A200 : #ffffff,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+$md-whitecollection: (
+    50 : #ffffff,
+    100 : #ffffff,
+    200 : #ffffff,
+    300 : #ffffff,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #ffffff,
+    A700 : #ffffff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$md-greycollection: (
+    50 : #e5e5e5,
+    100 : #bdbdbd,
+    200 : #919191,
+    300 : #656565,
+    400 : #444444,
+    500 : #232323,
+    600 : #1f1f1f,
+    700 : #1a1a1a,
+    800 : #151515,
+    900 : #0c0c0c,
+    A100 : #e76c6c,
+    A200 : #e04040,
+    A400 : #ec0000,
+    A700 : #d30000,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #ffffff,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+$glextra-primary: mat-palette($md-yellowcollection);
+$glextra-secondary: mat-palette($md-yellowcollection);
+$glextra-accent: mat-palette($md-yellowcollection);
+
+// The warn palette is optional (defaults to red).
+$glextra-warn: mat-palette($md-yellowcollection, A400, A100, A700);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$glextra-theme: mat-dark-theme((
+  color: (
+    primary: $glextra-primary,
+    accent: $glextra-accent,
+    warn: $glextra-warn,
+  )
+));
+
+$custom-typography: mat-typography-config(
+  $font-family: 'Arial',
+  $headline: mat-typography-level(36px, 38px, 400),
+  $title: mat-typography-level(24px, 30px, 400),
+  $subheading-1: mat-typography-level(18px, 20px, 400),
+  $subheading-2: mat-typography-level(19px, 26px, 400),
+  $body-1: mat-typography-level(16px, 18px, 400),
+  $display-4: mat-typography-level(58px, 62px, 900)
+);
+
+$spaceamounts: (0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 75, 100); // Adjust this to include the pixel amounts you need.
+$sides: (top, bottom, left, right); // Leave this variable alone
+@each $space in $spaceamounts {
+    @each $side in $sides {
+        .m#{str-slice($side, 0, 1)}-#{$space} {
+            margin-#{$side}: #{$space}px !important;
+        }
+        .p#{str-slice($side, 0, 1)}-#{$space} {
+            padding-#{$side}: #{$space}px !important;
+        }
+    }
+}
+
+@each $space in $spaceamounts {
+    .m-#{$space} {
+        margin: #{$space}px !important;
+    }
+    .p-#{$space} {
+        padding: #{$space}px !important;
+    }
+}
+
+@include mat-core($custom-typography);
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($glextra-theme);
+

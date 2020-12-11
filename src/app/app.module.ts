@@ -1,9 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 // Material Imports
 import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 // Glextra Components
 import { AppRoutingModule } from './app-routing.module';
@@ -18,6 +22,7 @@ import { ContactComponent } from './contact/contact.component';
 import { ArticlesComponent } from './articles/articles.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JumbotronComponent } from './jumbotron/jumbotron.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 
 @NgModule({
   declarations: [
@@ -30,14 +35,19 @@ import { JumbotronComponent } from './jumbotron/jumbotron.component';
     CareersComponent,
     ContactComponent,
     ArticlesComponent,
-    JumbotronComponent
+    JumbotronComponent,
+    ContactFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
 	MatIconModule,
-	ReactiveFormsModule
+	ReactiveFormsModule,
+	MatFormFieldModule,
+	MatSelectModule,
+	MatInputModule,
+	HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
