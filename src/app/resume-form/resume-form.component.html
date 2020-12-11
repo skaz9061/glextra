@@ -1,1 +1,23 @@
-<p>resume-form works!</p>
+<form [formGroup]="resumeForm" class="flex-container flex-column" (ngSubmit)="onSubmit(resumeForm.value)">
+	<mat-form-field *ngFor="let input of inputs" class="mb-10">
+		<mat-label>{{input.viewValue}}</mat-label>
+		<input matInput [formControlName]="input.value" [type]="input.type" required/>
+		<mat-error *ngIf="resumeForm.controls[input.value].invalid">{{getErrorMessage(input.value)}}</mat-error>
+	</mat-form-field>
+	<mat-form-field class="mb-10">
+		<mat-label>Upload Cover Letter</mat-label>
+		<ngx-mat-file-input matInput formControlName="coverLetter" type="file"></ngx-mat-file-input>
+		<mat-icon matPrefix class="mr-5">folder</mat-icon>
+		<mat-error *ngIf="resumeForm.controls.coverLetter.invalid">{{getErrorMessage("coverLetter")}}</mat-error>
+	</mat-form-field>
+	<mat-form-field class="mb-10">
+		<mat-label>Upload Resume</mat-label>
+		<ngx-mat-file-input matInput formControlName="resume" type="file" required></ngx-mat-file-input>
+		<mat-icon matPrefix class="mr-5">folder</mat-icon>
+		<mat-error *ngIf="resumeForm.controls.resume.invalid">{{getErrorMessage("resume")}}</mat-error>
+	</mat-form-field>
+	<div class="flex-container flex-row flex-j-center flex-a-center mb-20">
+		<button type="reset" value="Reset" class="mr-20">Reset</button>
+		<button type="submit" value="Submit" class="ml-20" [disabled]="resumeForm.invalid">Submit</button>
+	</div>
+</form>

@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MaterialFileInputModule } from 'ngx-material-file-input';
 
 // Glextra Components
 import { AppRoutingModule } from './app-routing.module';
@@ -49,7 +50,8 @@ import { ResumeFormComponent } from './resume-form/resume-form.component';
 	MatFormFieldModule,
 	MatSelectModule,
 	MatInputModule,
-	HttpClientModule
+	HttpClientModule,
+	MaterialFileInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
